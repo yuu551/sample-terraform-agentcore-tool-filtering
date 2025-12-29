@@ -4,7 +4,7 @@ AWS Bedrock AgentCore Gateway を使用した、権限ベースのツールフ�
 
 ## 概要
 
-このプロジェクトは、Terraform AWS Provider 6.25 で追加された `interceptor_configuration` を使用して、Response Interceptor でユーザーの権限に基づいてツールの一覧をフィルタリングする機能を実装しています。
+このプロジェクトは、Response Interceptor でユーザーの権限に基づいてツールの一覧をフィルタリングする機能を実装しています。
 
 ## アーキテクチャ
 
@@ -146,15 +146,3 @@ variable "tool_permissions" {
 ```bash
 terraform destroy
 ```
-
-## 注意事項
-
-- AgentCore Gateway は比較的新しいサービスのため、利用可能なリージョンを確認してください
-- Cognito User Pool Client の Secret は sensitive としてマークされています
-- Lambda 関数のログは CloudWatch Logs に出力されます
-
-## 参考リンク
-
-- [Amazon Bedrock AgentCore Developer Guide](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
-- [Terraform AWS Provider - bedrockagentcore_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagentcore_gateway)
-- [MCP Protocol Specification](https://modelcontextprotocol.io/)
