@@ -76,8 +76,7 @@ resource "aws_bedrockagentcore_gateway" "main" {
       # Cognito の OIDC discovery URL
       discovery_url = "https://cognito-idp.${data.aws_region.current.id}.amazonaws.com/${aws_cognito_user_pool.main.id}/.well-known/openid-configuration"
 
-      # 許可するオーディエンス (JWT の aud クレームを検証)
-      allowed_audience = [aws_cognito_user_pool_client.gateway.id]
+      allowed_clients = [aws_cognito_user_pool_client.gateway.id]
     }
   }
 
